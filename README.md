@@ -14,7 +14,7 @@ This project demonstrates **end-to-end Bayesian causal inference** for marketing
 
 ### Key Innovation
 
-**Proper model specification mattered more than expensive experimentation.** Adding a trend component (free) improved R² by **58%**, while geo-experiment calibration (expensive) changed it by **0%** — proving the observational model was already accurate.
+**Proper model specification mattered more than expensive experimentation.** Adding a trend component (free) improved R² by **58%**, while geo-experiment calibration (expensive) changed it by **0%** — proving the observational model was **already accurate.**
 
 This demonstrates:
 - ✅ Statistical sophistication (Bayesian inference, precision weighting)
