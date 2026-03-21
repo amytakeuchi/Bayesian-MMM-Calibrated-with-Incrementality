@@ -10,7 +10,7 @@
 
 ## 🎯 Project Overview
 
-This project demonstrates **end-to-end Bayesian causal inference** for marketing attribution, combining observational time-series modeling with experimental validation. Built to showcase production-ready data science skills for **FAANG-level technical interviews**.
+This project demonstrates **end-to-end Bayesian causal inference** for marketing attribution, combining observational time-series modeling with experimental validation. Built to showcase production-ready data science skills
 
 ### Key Innovation
 
