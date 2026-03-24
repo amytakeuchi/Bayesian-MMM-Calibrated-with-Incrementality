@@ -327,27 +327,22 @@ This demonstrates **proper Bayesian mechanics** — the model correctly weighted
 
 ---
 
-## 💡 Key Insights for Interviews
+## 💡 Key Insights
 
-### 1. Model Specification > Data Volume
-
-**Talking point**: "I improved model R² by 58% by adding a trend component — which cost $0 and 30 minutes of analysis. Meanwhile, geo-experiments (expensive) changed R² by 0%. This taught me to get the basics right before scaling up data collection."
+### 1. Model Specification > Data Volume: 
+I improved model R² by 58% by adding a trend component — which cost $0 and 30 minutes of analysis. Meanwhile, geo-experiments (expensive) changed R² by 0%. This taught me to get the basics right before scaling up data collection.
 
 ### 2. Understanding Null Results
-
-**Talking point**: "When calibration had minimal impact, my initial reaction was disappointment. But I analyzed the Bayesian precision weighting and realized this was actually the best possible outcome — it proved my observational model was already accurate. Knowing when 'no change' is good news shows statistical maturity."
+When calibration had minimal impact, my initial reaction was disappointment. But I analyzed the Bayesian precision weighting and realized this was actually the best possible outcome — **it proved my observational model was already accurate.** Knowing when 'no change' is good news shows statistical maturity.
 
 ### 3. Production Thinking
-
-**Talking point**: "I designed the pipeline to be modular (4 notebooks, reusable modules) with automated diagnostics. Each notebook saves artifacts for the next, ensuring reproducibility. This mirrors production ML systems where model training, validation, and deployment are separate stages."
+I designed the pipeline to be modular (4 notebooks, reusable modules) with automated diagnostics. Each notebook saves artifacts for the next, ensuring reproducibility. This mirrors production ML systems where model training, validation, and deployment are separate stages.
 
 ### 4. Communicating Uncertainty
-
-**Talking point**: "I didn't just report ROI point estimates — I quantified uncertainty with 94% HDI intervals. For the YouTube channel, ROI is 1.87 ± 0.3, meaning we're confident it's positive but there's meaningful uncertainty in the exact value. This helps stakeholders make risk-aware decisions."
+I didn't just report ROI point estimates — I quantified uncertainty with 94% HDI intervals. For the YouTube channel, ROI is 1.87 ± 0.3, meaning we're confident it's positive but there's meaningful uncertainty in the exact value. This helps stakeholders make risk-aware decisions.
 
 ### 5. Intellectual Honesty
-
-**Talking point**: "When experiments didn't shift parameters much, I could've tried different priors or methods to force a change. Instead, I explained why minimal shift was correct given the data. Hiring managers value analysts who report what the data says, not what they want it to say."
+When experiments didn't shift parameters much, I could've tried different priors or methods to force a change. Instead, I explained why minimal shift was correct given the data. Hiring managers value analysts who report what the data says, not what they want it to say.
 
 ---
 
