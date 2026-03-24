@@ -25,6 +25,7 @@ This demonstrates:
 ---
 
 ## 📊 Business Impact
+**Busiess Question**: Should we invest $500K in running 40 geo-experiments (10 per channel) to improve our marketing attribution model, or should we invest that budget in improving our observational data quality and model specification?
 
 **Methodology**: Bayesian hierarchical model with adstock + saturation transformations
 
