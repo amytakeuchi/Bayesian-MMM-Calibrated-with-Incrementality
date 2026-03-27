@@ -32,7 +32,7 @@ This demonstrates:
 **Results**:
 - 📈 **Model Performance**: R² = 0.755, σ = 0.048 (30% error reduction vs. unspecified model)
 - 💡 **Key Insight**: Calibration validated rather than corrected estimates (Bayesian weighting: 80% observations, 20% experiments)
-- 💰 **ROI Analysis**: Identified 5-15% lift opportunity from budget reallocation ($4,706,000 annual impact)
+- 💰 **ROI Analysis**: Identified 5-15% lift opportunity from budget reallocation ($$235k–$705k annual impact)
 - 🎯 **Business Value**: Data-driven budget optimization with quantified uncertainty
 
 ---
