@@ -29,12 +29,22 @@ This demonstrates:
 
 **Methodology**: Bayesian hierarchical model with adstock + saturation transformations
 
-**Results**:
-- 📈 **Model Performance**: R² = 0.755, σ = 0.048 (30% error reduction vs. unspecified model)
-- 💡 **Key Insight**: Calibration validated rather than corrected estimates (Bayesian weighting: 80% observations, 20% experiments)
-- 💰 **ROI Analysis**: Identified 5-15% lift opportunity from budget reallocation ($$235k–$705k annual impact)
-- 🎯 **Business Value**: Data-driven budget optimization with quantified uncertainty
+📈 **Model Performance & Business Value**
+- **Model Accuracy:** Achieved $R^2 = 0.755$ and $\sigma = 0.048$, representing a **30% error reduction** through advanced trend component specification.
+- **Key Calibration Insight:** Bayesian weighting validated existing estimates **(80% observations / 20% experiments)**, proving the observational model was already highly robust.
+- **ROI & Saturation Analysis:** Identified that **TV spend has reached 85% of its saturation point**, signaling diminishing returns.
+- **Strategic Reallocation:** Posterior distributions (94% HDI) confirm **Search and YouTube** as the highest ROI drivers. Shifting budget from saturated offline channels to these digital drivers provides a data-driven, risk-adjusted roadmap for growth.
+- **Uncertainty Quantification:** Leveraged **full posterior probability distributions** to ensure budget decisions are made with a clear understanding of variance and potential risk.
 
+<p align="center">
+  <img src="viz/roi_analysis.png" width="800" title="ROI Analysis and Uncertainty">
+</p>
+<p align="center"><i>Figure 1: ROI by channel with 94% HDI and Posterior Distributions.</i></p>
+
+<p align="center">
+  <img src="viz/saturation_curves.jpg" width="800" title="Channel Saturation Curves">
+</p>
+<p align="center"><i>Figure 2: Diminishing returns analysis showing TV spend nearing the 90% saturation threshold.</i></p>
 ---
 
 ## 🏗️ Architecture
