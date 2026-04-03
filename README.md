@@ -42,7 +42,7 @@ This demonstrates:
 <p align="center"><i>Figure 1: ROI by channel with 94% HDI and Posterior Distributions.</i></p>
 
 <p align="center">
-  <img src="viz/saturation_curves.jpg" width="800" title="Channel Saturation Curves">
+  <img src="figures/04_saturation_curves.png" width="800" title="Channel Saturation Curves">
 </p>
 <p align="center"><i>Figure 2: Diminishing returns analysis showing TV spend nearing the 90% saturation threshold.</i></p>
 ---
@@ -390,7 +390,7 @@ Shows how Bayesian updating works: weak prior (blue) + geo-prior (orange) → po
 
 **Key finding**: Posterior stayed near weak prior (not geo-prior) because observational data had higher precision.
 
-![Prior Posterior Shift](reports/figures/03_prior_posterior_shift_3way.png)
+![Prior Posterior Shift](reports/figures/fig1_prior_to_posterior_shift.png)
 
 ---
 
@@ -401,26 +401,6 @@ Compares 94% HDI intervals before/after calibration.
 **Key finding**: Overlapping intervals = minimal calibration impact (as expected from precision weighting).
 
 ![Forest Plot](reports/figures/03_forest_plot_comparison.png)
-
----
-
-### ROI Analysis
-
-ROI by channel with uncertainty quantification.
-
-**Key finding**: Search and YouTube have highest ROI; TV is near saturation.
-
-![ROI by Channel](reports/figures/04_roi_by_channel.png)
-
----
-
-### Saturation Curves
-
-Shows diminishing returns for each channel.
-
-**Key finding**: TV spend is 85% of saturation point → opportunity to reallocate.
-
-![Saturation Curves](reports/figures/04_saturation_curves.png)
 
 ---
 
