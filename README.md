@@ -400,7 +400,7 @@ Compares 94% HDI intervals before/after calibration.
 
 **Key finding**: Overlapping intervals = minimal calibration impact (as expected from precision weighting).
 
-![Forest Plot](reports/figures/03_forest_plot_comparison.png)
+![Forest Plot](reports/figures/calibration_forest.png)
 
 ---
 
