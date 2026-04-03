@@ -37,7 +37,7 @@ This demonstrates:
 - **Uncertainty Quantification:** Leveraged **full posterior probability distributions** to ensure budget decisions are made with a clear understanding of variance and potential risk.
 
 <p align="center">
-  <img src="viz/roi_analysis.png" width="800" title="ROI Analysis and Uncertainty">
+  <img src="figures/04_roi_by_channel.png" width="800" title="ROI Analysis and Uncertainty">
 </p>
 <p align="center"><i>Figure 1: ROI by channel with 94% HDI and Posterior Distributions.</i></p>
 
