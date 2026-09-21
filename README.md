@@ -36,18 +36,12 @@ This demonstrates:
 - **Strategic Reallocation:** Posterior distributions (94% HDI) confirm **Search and YouTube** as the highest ROI drivers. Shifting budget from saturated offline channels to these digital drivers provides a data-driven, risk-adjusted roadmap for growth.
 - **Uncertainty Quantification:** Leveraged **full posterior probability distributions** to ensure budget decisions are made with a clear understanding of variance and potential risk.
 
-## ROI Analysis & Budget Optimization
+## ROI Analysis & Budget Recommendations
 
 ### Current Allocation
 
 - Total weekly budget: $90,566
 - Distribution: Search 22%, Social 17%, TV 35%, YouTube 26%
-
-### Optimization Results
-
-- Expected lift: 5–15% from reallocation (no additional spend!)
-- Annual impact: $XX,XXX incremental revenue
-- Method: Constrained optimization (SLSQP) maximizing incremental sales
 
 ### Updated Findings (post current-spend correction)
 
