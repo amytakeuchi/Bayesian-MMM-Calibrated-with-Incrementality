@@ -36,6 +36,51 @@ This demonstrates:
 - **Strategic Reallocation:** Posterior distributions (94% HDI) confirm **Search and YouTube** as the highest ROI drivers. Shifting budget from saturated offline channels to these digital drivers provides a data-driven, risk-adjusted roadmap for growth.
 - **Uncertainty Quantification:** Leveraged **full posterior probability distributions** to ensure budget decisions are made with a clear understanding of variance and potential risk.
 
+## ROI Analysis & Budget Optimization
+
+### Current Allocation
+
+- Total weekly budget: $90,566
+- Distribution: Search 22%, Social 17%, TV 35%, YouTube 26%
+
+### Optimization Results
+
+- Expected lift: 5–15% from reallocation (no additional spend!)
+- Annual impact: $XX,XXX incremental revenue
+- Method: Constrained optimization (SLSQP) maximizing incremental sales
+
+### Updated Findings (post current-spend correction)
+
+The original recommendation to increase YouTube was based on a buggy $0 
+current-spend value. With corrected (scaled) current spend applied against 
+each channel's saturation curve, **YouTube is also past its 90% saturation 
+point**, not under it — revising the picture below.
+
+| Channel | Current Spend (scaled) | vs. 90% Saturation | Verdict |
+|---------|------------------------:|----------------------|---------|
+| TV      | 3.18                    | ~1.6x beyond          | Most oversaturated |
+| YouTube | 2.37                    | Just beyond           | Oversaturated |
+| Search  | 1.97                    | At threshold          | Little room left |
+| Social  | 1.54                    | Nominally under       | Curve unreliable — needs model fix |
+
+### Recommendations
+
+- **Decrease**: TV (most oversaturated — largest gap above its 90% threshold) 
+  and YouTube (moderately oversaturated — just past threshold)
+- **Hold / reallocate cautiously**: Search — sitting almost exactly at its 
+  saturation point, so there's limited headroom for efficient increases
+- **Do not reallocate toward Social** until its saturation curve issue 
+  (currently negative/invalid) is diagnosed and fixed — its "under-saturated" 
+  status is not currently trustworthy
+- **Test**: Quarterly experiments to validate shifts, prioritizing a TV 
+  spend-down test first given the clearest signal of oversaturation
+
+> ⚠️ **Note:** The optimizer's expected lift (5–15%) and dollar-impact figures 
+> were likely generated using the same incorrect ($0) current-spend inputs. 
+> These should be **re-run with corrected scaled spend values** before the 
+> numbers in this section are finalized, as the reallocation direction has 
+> changed (YouTube moves from "increase" to "decrease").
+
 <p align="center">
   <img src="figures/04_roi_by_channel.png" width="800" title="ROI Analysis and Uncertainty">
 </p>
@@ -292,21 +337,50 @@ For our case:
 
 ---
 
-### 4. ROI Analysis & Budget Optimization
+## 4. ROI Analysis & Budget Optimization
 
-**Current Allocation**:
+### Current Allocation
+
 - Total weekly budget: $90,566
 - Distribution: Search 22%, Social 17%, TV 35%, YouTube 26%
 
-**Optimization Results**:
-- **Expected lift**: 5-15% from reallocation (no additional spend!)
-- **Annual impact**: $XX,XXX incremental revenue
-- **Method**: Constrained optimization (SLSQP) maximizing incremental sales
+### Optimization Results
 
-**Recommendations**:
-- Increase: High-ROI channels (search, youtube)
-- Decrease: Saturated channels (tv)
-- Test: Quarterly experiments to validate shifts
+- Expected lift: 5–15% from reallocation (no additional spend!)
+- Annual impact: $XX,XXX incremental revenue
+- Method: Constrained optimization (SLSQP) maximizing incremental sales
+
+### Updated Findings (post current-spend correction)
+
+The original recommendation to increase YouTube was based on a buggy $0 
+current-spend value. With corrected (scaled) current spend applied against 
+each channel's saturation curve, **YouTube is also past its 90% saturation 
+point**, not under it — revising the picture below.
+
+| Channel | Current Spend (scaled) | vs. 90% Saturation | Verdict |
+|---------|------------------------:|----------------------|---------|
+| TV      | 3.18                    | ~1.6x beyond          | Most oversaturated |
+| YouTube | 2.37                    | Just beyond           | Oversaturated |
+| Search  | 1.97                    | At threshold          | Little room left |
+| Social  | 1.54                    | Nominally under       | Curve unreliable — needs model fix |
+
+### Recommendations
+
+- **Decrease**: TV (most oversaturated — largest gap above its 90% threshold) 
+  and YouTube (moderately oversaturated — just past threshold)
+- **Hold / reallocate cautiously**: Search — sitting almost exactly at its 
+  saturation point, so there's limited headroom for efficient increases
+- **Do not reallocate toward Social** until its saturation curve issue 
+  (currently negative/invalid) is diagnosed and fixed — its "under-saturated" 
+  status is not currently trustworthy
+- **Test**: Quarterly experiments to validate shifts, prioritizing a TV 
+  spend-down test first given the clearest signal of oversaturation
+
+> ⚠️ **Note:** The optimizer's expected lift (5–15%) and dollar-impact figures 
+> were likely generated using the same incorrect ($0) current-spend inputs. 
+> These should be **re-run with corrected scaled spend values** before the 
+> numbers in this section are finalized, as the reallocation direction has 
+> changed (YouTube moves from "increase" to "decrease").
 
 ---
 
