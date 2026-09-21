@@ -44,7 +44,53 @@ This demonstrates:
 <p align="center">
   <img src="figures/04_saturation_curves.png" width="800" title="Channel Saturation Curves">
 </p>
-<p align="center"><i>Figure 2: Diminishing returns analysis showing TV spend nearing the 90% saturation threshold. (Flag on social - negative saturation likely b a bug or a model-fit problem </i></p>
+<p align="center"><i>Figure 2: Diminishing-returns (saturation) curves for Search, Social, TV, 
+and YouTube, showing incremental sales as a function of weekly spend. Each 
+panel marks current spend (red dashed line), historical maximum weekly spend 
+(orange dotted line), and the point at which the curve reaches 90% of its 
+estimated maximum (purple dot). Search, TV, and YouTube all follow the 
+expected concave shape, reaching 90% saturation at roughly $2/week (scaled) 
+and flattening well before their historical max — evidence that spend has, 
+at points, exceeded the efficient range, most notably for TV (historical max 
+≈ 2x its saturation point). Social's curve is negative and monotonically 
+decreasing rather than concave and increasing, which does not represent a 
+valid saturation effect; this is flagged as a likely data or model-fit issue 
+(e.g., sign misspecification, collinearity, or convergence failure) requiring 
+further investigation before the channel can be included in budget 
+recommendations. </i></p>
+
+## Current Spend vs. Saturation — Combined Analysis
+
+Using the corrected (÷10,000-scaled) current-spend values against each 
+channel's fitted saturation curve:
+
+| Channel | Current Spend (scaled) | 90% Saturation Point | Historical Max | Status |
+|---------|------------------------:|-----------------------:|-----------------:|--------|
+| TV      | 3.18                    | ~2                      | 4                 | 🔴 **Past saturation** — spending ~1.6x beyond the 90% point |
+| YouTube | 2.37                    | ~2                      | 4                 | 🔴 **Past saturation** — just over the 90% point, in the flat zone |
+| Search  | 1.97                    | ~2                      | 3                 | 🟡 **Right at the saturation point** — the edge of efficient spend |
+| Social  | 1.54                    | ~2 (curve unreliable)   | 3                 | ⚪ Below the nominal saturation point, but the curve shape itself is broken — result not trustworthy |
+
+### Key Finding
+
+Three of four channels are being spent at or past the point of diminishing 
+returns. **TV is the most oversaturated**, followed by **YouTube**, with 
+**Search** sitting almost exactly on the 90% threshold and therefore having 
+little room left for efficient scaling. **Social's result cannot be used**: 
+its saturation curve is negative rather than a standard diminishing-returns 
+shape, pointing to a model-fit or data issue (check convergence diagnostics, 
+collinearity with other channels, and the sign of the fitted coefficient) 
+rather than a real saturation effect.
+
+### Recommendation
+
+- Reallocate budget **away from TV** (and modestly from YouTube) toward 
+  channels with more headroom, once Social's model issue is resolved.
+- **Search** has minimal remaining room for efficient scaling.
+- **Do not act on Social's curve** until the underlying model/data problem 
+  is diagnosed and corrected.
+
+---
 ---
 
 ## 🏗️ Architecture
