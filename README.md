@@ -44,7 +44,7 @@ This demonstrates:
 <p align="center">
   <img src="figures/04_saturation_curves.png" width="800" title="Channel Saturation Curves">
 </p>
-<p align="center"><i>Figure 2: Diminishing returns analysis showing TV spend nearing the 90% saturation threshold.</i></p>
+<p align="center"><i>Figure 2: Diminishing returns analysis showing TV spend nearing the 90% saturation threshold. (Flag on social - negative saturation likely b a bug or a model-fit problem </i></p>
 ---
 
 ## 🏗️ Architecture
