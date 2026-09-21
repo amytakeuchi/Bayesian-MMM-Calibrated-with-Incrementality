@@ -69,10 +69,11 @@ This demonstrates:
 > the magnitudes.
 
 ### What the ROI Chart Does (Directionally) Support
+*The implausible 1e14 scale indicates a units/scaling bug, so only the directional ranking (not the magnitudes, and not any marginal-return interpretation) should be treated as provisionally informative.
 
 Even with the scaling issue, one qualitative signal lines up with the 
 saturation analysis: **TV, Social, and YouTube's ROI intervals all cross 
-zero**, meaning the model cannot confidently distinguish their marginal 
+zero**, meaning the model cannot confidently distinguish their avg 
 return from zero — consistent with TV and YouTube already sitting at or past 
 their saturation points (where marginal ROI on the *next* dollar should 
 indeed be near zero). Search's ROI, despite the implausible scale, is the 
