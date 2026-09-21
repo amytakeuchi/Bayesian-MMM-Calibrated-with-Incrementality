@@ -43,12 +43,48 @@ This demonstrates:
 - Total weekly budget: $90,566
 - Distribution: Search 22%, Social 17%, TV 35%, YouTube 26%
 
+### ROI by Channel (Posterior Mean + 94% HDI)
+
+| Channel | Mean ROI (sales/spend) | 94% HDI | Notes |
+|---------|------------------------:|---------|-------|
+| Search  | ~1.7e14                 | ~0.25e14 to 3.1e14 | Enormous point estimate, extremely wide interval — not credible as-is |
+| TV      | ~0.1e14                 | ~-0.15e14 to 0.4e14 | Crosses zero, high uncertainty |
+| Social  | ~0e14                   | ~-0.35e14 to 0.3e14 | Centered near zero, crosses zero |
+| YouTube | ~0e14 (slightly negative) | ~-0.1e14 to 0.05e14 | Centered near/below zero, crosses zero |
+
+> ⚠️ **Data quality flag:** These ROI values are on the order of **1e14** 
+> (sales per dollar spent), which is not a plausible ROI scale — a sane ROI 
+> is typically in the range of 0–20x. This strongly suggests a **units/scaling 
+> mismatch** in the ROI calculation (e.g., dividing incremental sales by the 
+> *scaled* spend variable — the same ÷10,000 transform used for the saturation 
+> curves — instead of raw dollar spend, or a unit mismatch between sales and 
+> spend columns). Search's posterior is also so wide that its 94% HDI spans 
+> from near-zero to over 3e14, and its violin plot (right panel) shows the 
+> distribution is barely distinguishable from noise — this reflects severe 
+> model uncertainty, not a genuine outsized ROI advantage for Search.
+>
+> **Do not use these ROI numbers for budget decisions until the scaling bug 
+> is fixed and the model is re-run.** Treat only the *relative ranking* and 
+> *sign* (whether the HDI includes zero) as provisionally informative, not 
+> the magnitudes.
+
+### What the ROI Chart Does (Directionally) Support
+
+Even with the scaling issue, one qualitative signal lines up with the 
+saturation analysis: **TV, Social, and YouTube's ROI intervals all cross 
+zero**, meaning the model cannot confidently distinguish their marginal 
+return from zero — consistent with TV and YouTube already sitting at or past 
+their saturation points (where marginal ROI on the *next* dollar should 
+indeed be near zero). Search's ROI, despite the implausible scale, is the 
+only channel whose interval sits clearly above zero — loosely consistent with 
+Search being at, but not past, its saturation threshold.
+
 ### Updated Findings (post current-spend correction)
 
 The original recommendation to increase YouTube was based on a buggy $0 
 current-spend value. With corrected (scaled) current spend applied against 
-each channel's saturation curve, **YouTube is also past its 90% saturation 
-point**, not under it — revising the picture below.
+each channel's saturation curve, YouTube is also past its 90% saturation 
+point, not under it — revising the picture below.
 
 | Channel | Current Spend (scaled) | vs. 90% Saturation | Verdict |
 |---------|------------------------:|----------------------|---------|
@@ -59,22 +95,30 @@ point**, not under it — revising the picture below.
 
 ### Recommendations
 
-- **Decrease**: TV (most oversaturated — largest gap above its 90% threshold) 
-  and YouTube (moderately oversaturated — just past threshold)
+- **Decrease**: TV (most oversaturated — largest gap above its 90% threshold, 
+  and ROI interval crosses zero, consistent with near-zero marginal return) 
+  and YouTube (moderately oversaturated — just past threshold, ROI interval 
+  also near/below zero)
 - **Hold / reallocate cautiously**: Search — sitting almost exactly at its 
-  saturation point, so there's limited headroom for efficient increases
-- **Do not reallocate toward Social** until its saturation curve issue 
-  (currently negative/invalid) is diagnosed and fixed — its "under-saturated" 
-  status is not currently trustworthy
+  saturation point with limited headroom; its ROI point estimate is highest 
+  but too uncertain (and likely mis-scaled) to size a reallocation from directly
+- **Do not reallocate toward Social** until both (a) its saturation curve 
+  issue (currently negative/invalid) and (b) the ROI scaling bug are 
+  diagnosed and fixed — its "under-saturated" status is not currently trustworthy
 - **Test**: Quarterly experiments to validate shifts, prioritizing a TV 
-  spend-down test first given the clearest signal of oversaturation
+  spend-down test first given the clearest and most consistent signal 
+  (saturation curve + near-zero ROI) of oversaturation
 
-> ⚠️ **Note:** The optimizer's expected lift (5–15%) and dollar-impact figures 
-> were likely generated using the same incorrect ($0) current-spend inputs. 
-> These should be **re-run with corrected scaled spend values** before the 
-> numbers in this section are finalized, as the reallocation direction has 
-> changed (YouTube moves from "increase" to "decrease").
-
+> ⚠️ **Note:** The optimizer's expected lift (5–15%) and dollar-impact 
+> figures, and this ROI chart, were likely generated using the same 
+> incorrect/mis-scaled spend inputs. **Both should be re-run** — the spend 
+> scaling fixed for current-spend, and the ROI calculation checked for a 
+> units mismatch — before any numbers in this section are finalized. The 
+> reallocation *direction* (decrease TV and YouTube, hold Search, exclude 
+> Social) is reasonably well-supported across both charts, but the 
+> *magnitudes* (ROI values, expected lift %, dollar impact) are not yet 
+> reliable.
+--- 
 <p align="center">
   <img src="figures/04_roi_by_channel.png" width="800" title="ROI Analysis and Uncertainty">
 </p>
